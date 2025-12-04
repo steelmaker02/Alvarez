@@ -1,72 +1,85 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alvarez Chocolat | Est. 1850</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              cacao: '#2B1B17',
-              cream: '#F5F0EB',
-              copper: '#C68E66',
-              'copper-light': '#D4A381',
-            },
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Montserrat"', 'sans-serif'],
-            },
-            letterSpacing: {
-              widest: '.2em',
-            },
-            backgroundImage: {
-              'hero-pattern': "url('https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=2800&auto=format&fit=crop')",
-              'factory-pattern': "url('https://images.unsplash.com/photo-1566199923366-419a4e40db74?q=80&w=2800&auto=format&fit=crop')", // Vintage/Factory feel
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alvarez Chocolat | Est. 1850</title>
+
+  <!-- ✅ ВОТ ЭТА ВАЖНАЯ СТРОКА ДЛЯ ИКОНКИ: -->
+  <!-- Мы указываем путь /Alvarez/, чтобы GitHub понял, где искать картинку -->
+  <link rel="icon" type="image/png" href="/Alvarez/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cacao: '#2B1B17',
+            cream: '#F5F0EB',
+            copper: '#C68E66',
+            'copper-light': '#D4A381',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          letterSpacing: {
+            widest: '.2em',
+          },
+          backgroundImage: {
+            'hero-pattern': "url('https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=2800&auto=format&fit=crop')",
+            'factory-pattern': "url('https://images.unsplash.com/photo-1566199923366-419a4e40db74?q=80&w=2800&auto=format&fit=crop')",
           }
         }
       }
-    </script>
-    <style>
-      /* Custom scrollbar for webkit */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #2B1B17;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #C68E66;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #D4A381;
-      }
-      
-      /* Hide scrollbar for carousel but keep functionality */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-      }
-      
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    /* Custom scrollbar for webkit */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2B1B17;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #C68E66;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4A381;
+    }
+
+    /* Hide scrollbar for carousel but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -77,10 +90,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-cacao text-cream antialiased">
-    <div id="root"></div>
+
+<body class="bg-cacao text-cream antialiased">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>
