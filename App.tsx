@@ -36,8 +36,6 @@ const App: React.FC = () => {
             <img
               src="pralinenschachtel.png"
               alt="Alvarez Gift Box Closed"
-              // УБРАЛ: mix-blend-multiply
-              // Теперь белый цвет останется белым
               className="absolute inset-0 w-full h-full object-contain p-8 md:p-12
                 drop-shadow-xl
                 transition-all duration-700 ease-in-out
@@ -49,7 +47,6 @@ const App: React.FC = () => {
             <img
               src="pralinenschachtel_open.png"
               alt="Alvarez Gift Box Open"
-              // УБРАЛ: mix-blend-multiply
               className="absolute inset-0 w-full h-full object-contain p-8 md:p-12
                 drop-shadow-xl
                 transition-all duration-700 ease-in-out
@@ -58,11 +55,17 @@ const App: React.FC = () => {
             />
           </div>
 
-          {/* ПРАВАЯ ЧАСТЬ: ТЕКСТ (Без изменений) */}
+          {/* ПРАВАЯ ЧАСТЬ: ТЕКСТ */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <span className="text-[#C68E66] font-sans text-sm tracking-[0.2em] uppercase mb-4 block">
+            {/* 
+               ИСПРАВЛЕНО: text-[#784830] 
+               Заменили светлое золото на темную медь. 
+               Теперь читается идеально и ошибки не будет.
+            */}
+            <span className="text-[#784830] font-sans text-sm tracking-[0.2em] uppercase mb-4 block">
               Geschenkidee
             </span>
+
             <h2 className="font-serif text-3xl md:text-5xl text-[#2B1B17] mb-6">
               Das perfekte Geschenk
             </h2>
@@ -80,12 +83,10 @@ const App: React.FC = () => {
   );
 
   return (
-    // ОБОРАЧИВАЕМ ВСЁ В PROVDER
     <CartProvider>
       <div className="min-h-screen flex flex-col selection:bg-[#C68E66] selection:text-white">
         <Header onNavigate={setCurrentView} currentView={currentView} />
 
-        {/* ДОБАВЛЯЕМ САМУ КОРЗИНУ */}
         <CartDrawer />
 
         <main className="flex-grow">

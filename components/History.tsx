@@ -13,11 +13,14 @@ export const History: React.FC = () => {
       ></div>
 
       {/* Overlay color fixed to Deep Cacao */}
-      <div className="absolute inset-0 bg-[#2B1B17]/80 mix-blend-multiply"></div>
+      <div className="absolute inset-0 bg-[#2B1B17]/85 mix-blend-multiply"></div>
 
       <div className="container relative mx-auto px-6 md:px-12 text-center z-10">
-        <div className="max-w-3xl mx-auto border border-[#C68E66]/50 p-12 md:p-20 bg-[#2B1B17]/60 backdrop-blur-md shadow-2xl">
-          <span className="text-[#C68E66] font-sans text-sm tracking-[0.4em] uppercase mb-6 block">Unsere Geschichte</span>
+        {/* ИСПРАВЛЕНО: border-[#E6C8A6]/30 - светлая рамка */}
+        <div className="max-w-3xl mx-auto border border-[#E6C8A6]/30 p-12 md:p-20 bg-[#2B1B17]/60 backdrop-blur-md shadow-2xl">
+
+          {/* ИСПРАВЛЕНО: text-[#E6C8A6] - светлое золото */}
+          <span className="text-[#E6C8A6] font-sans text-sm tracking-[0.4em] uppercase mb-6 block">Unsere Geschichte</span>
 
           <h2 className="font-serif text-4xl md:text-6xl text-[#F5F0EB] mb-8">
             Est. 1850
@@ -27,7 +30,8 @@ export const History: React.FC = () => {
             "Exklusive Schokoladenspezialitäten nach den Grundrezepturen von Antonio Alvarez."
           </p>
 
-          <div className="font-sans text-[#F5F0EB]/80 text-base md:text-lg font-light leading-loose space-y-4">
+          {/* ИСПРАВЛЕНО: opacity-90 (текст стал ярче) */}
+          <div className="font-sans text-[#F5F0EB]/90 text-base md:text-lg font-light leading-loose space-y-4">
             <p>
               Die Geschichte beginnt mit dem Entschluss des Lübecker Konditors Johann Köster in seiner kleinen Konditorei in der Altstadt Lübecks, nach einer neuen Methode Schokolade herzustellen.
             </p>
@@ -37,8 +41,8 @@ export const History: React.FC = () => {
           </div>
 
           <div className="mt-12">
-            {/* Текстовая подпись вместо внешней картинки (так надежнее и стильнее) */}
-            <div className="font-serif text-3xl text-[#C68E66] opacity-80 -rotate-6">
+            {/* ИСПРАВЛЕНО: text-[#E6C8A6] - подпись тоже светлая */}
+            <div className="font-serif text-3xl text-[#E6C8A6] opacity-90 -rotate-6">
               Antonio Alvarez
             </div>
           </div>
