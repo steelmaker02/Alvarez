@@ -67,7 +67,7 @@ export const AGB: React.FC = () => {
                     <section>
                         <h2 className="font-serif text-2xl font-bold mb-2">8. Streitbeilegung</h2>
                         <p>
-                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#C68E66] underline">https:
+                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#C68E66] underline">https://ec.europa.eu/consumers/odr/</a>.
                         </p>
                     </section>
                 </div>
