@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
         <div className="flex-shrink-0">
           <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }} className="block">
             <img
-              src="/logo.png"
+              src="logo.png"
               alt="Alvarez Chocolat"
               className="h-10 md:h-16 w-auto object-contain transition-all duration-300"
               style={{ filter: 'brightness(0) invert(1)' }}
