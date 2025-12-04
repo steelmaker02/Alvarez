@@ -9,7 +9,6 @@ import { Datenschutz } from './components/Datenschutz';
 import { Impressum } from './components/Impressum';
 import { AGB } from './components/AGB';
 import { KontaktFuehrung } from './components/KontaktFuehrung';
-// НОВЫЕ ИМПОРТЫ
 import { CartProvider } from './context/CartContext';
 import { CartDrawer } from './components/CartDrawer';
 
@@ -30,7 +29,12 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
 
           {/* ЛЕВАЯ ЧАСТЬ: КОРОБКА */}
-          <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-square bg-[#C68E66]/10 border border-[#C68E66]/20 rounded-sm relative group overflow-hidden">
+          {/* 
+             ✅ ИСПРАВЛЕНО:
+             bg-[#784830]/5  -> Тот же самый легкий оттенок, что и в карусели
+             border-[#784830]/20 -> Та же самая рамка
+          */}
+          <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-square bg-[#784830]/5 border border-[#784830]/20 rounded-sm relative group overflow-hidden">
 
             {/* 1. ЗАКРЫТАЯ КОРОБКА */}
             <img
@@ -57,11 +61,7 @@ const App: React.FC = () => {
 
           {/* ПРАВАЯ ЧАСТЬ: ТЕКСТ */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            {/* 
-               ИСПРАВЛЕНО: text-[#784830] 
-               Заменили светлое золото на темную медь. 
-               Теперь читается идеально и ошибки не будет.
-            */}
+            {/* Текст заголовка тоже темный (#784830) */}
             <span className="text-[#784830] font-sans text-sm tracking-[0.2em] uppercase mb-4 block">
               Geschenkidee
             </span>
