@@ -64,7 +64,7 @@ export const EASTER_PRODUCTS: Product[] = [
   {
     id: 'ei-nougat-schicht',
     name: 'Nougat-Symphonie',
-    description: 'Vier handgeschichtete Lagen feinsten Nougats, mit fruchtiger zarter Marmeladenfüllung.',
+    description: 'Vier erlesene Lagen feinen Nougats mit fruchtiger zarter Marmeladenfüllung.',
     price: '€ 2,50',
     imageDefault: 'Ei_Nougat.png',
     imageHover: 'Ei_Nougat_Cut.png',
