@@ -6,40 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alvarez Chocolat | Est. 1850</title>
 
-  <!-- ✅ ИКОНКА САЙТА (FAVICON) -->
+  <!-- ✅ ИКОНКА САЙТА -->
   <link rel="icon" type="image/png" href="/Alvarez/favicon.png" />
 
-  <!-- ❌ GOOGLE FONTS УДАЛЕНЫ -->
-  <!-- (Теперь шрифты берутся из твоего локального файла index.css) -->
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cacao: '#2B1B17',
-            cream: '#F5F0EB',
-            copper: '#C68E66',
-            'copper-light': '#D4A381',
-          },
-          fontFamily: {
-            // Эти названия должны совпадать с тем, что мы написали в index.css (@font-face)
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['"Montserrat"', 'sans-serif'],
-          },
-          letterSpacing: {
-            widest: '.2em',
-          },
-          backgroundImage: {
-            'hero-pattern': "url('https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=2800&auto=format&fit=crop')",
-            'factory-pattern': "url('https://images.unsplash.com/photo-1566199923366-419a4e40db74?q=80&w=2800&auto=format&fit=crop')",
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Стили скроллбара -->
   <style>
     /* Custom scrollbar for webkit */
     ::-webkit-scrollbar {
@@ -67,31 +37,22 @@
 
     .no-scrollbar {
       -ms-overflow-style: none;
-      /* IE and Edge */
       scrollbar-width: none;
-      /* Firefox */
     }
 
     html {
       scroll-behavior: smooth;
     }
   </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
-  }
-}
-</script>
-  <!-- Подключаем твои стили с локальными шрифтами -->
-  <link rel="stylesheet" href="/index.css">
+
+  <!-- Сюда больше ничего не пишем, стили подтянутся сами через JS -->
 </head>
 
 <body class="bg-cacao text-cream antialiased">
   <div id="root"></div>
+
+  <!-- Запуск React приложения -->
+  <!-- Важно: этот файл сам подключит index.css и Tailwind -->
   <script type="module" src="/index.tsx"></script>
 </body>
 
