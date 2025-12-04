@@ -1,20 +1,42 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Alvarez Chocolat 🍫
 
-# Run and deploy your AI Studio app
+Eine moderne Landing-Page für eine fiktive Premium-Schokoladenmanufaktur aus Lübeck.
+Entwickelt mit React, TypeScript und Tailwind CSS unter strenger Beachtung deutscher Datenschutzstandards (DSGVO).
 
-This contains everything you need to run your app locally.
+🌐 **Live-Demo:** [https://steelmaker02.github.io/Alvarez/](https://steelmaker02.github.io/Alvarez/)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1RysrTH18Y5xBI28abxJXn0gnhEzkJztL
+## 🛠 Verwendete Technologien
 
-## Run Locally
+*   **Frontend:** React + TypeScript
+*   **Build-Tool:** Vite
+*   **Styling:** Tailwind CSS (lokale Installation über PostCSS, kein CDN)
+*   **Schriftarten:** Lokale WOFF2-Einbindung (Google Fonts entfernt für DSGVO-Konformität)
+*   **Icons:** Lucide React
 
-**Prerequisites:**  Node.js
+## ✨ Features & Highlights
 
+*   ✅ **Responsive Design:** Vollständig optimiert für Smartphones, Tablets und Desktops.
+*   ✅ **Performance:** Nutzung von WebP-Bildformaten und Lazy Loading für schnelle Ladezeiten.
+*   ✅ **Rechtssicherheit (DSGVO):**
+    *   Keine externen Anfragen an Google Fonts oder US-Server.
+    *   Vollständiges Impressum, Datenschutzerklärung und AGB.
+    *   Lokales Hosting aller Assets.
+*   ✅ **Interaktivität:** Funktionierender Warenkorb (State Management) und Formular-Validierung.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Lokale Installation
+
+1.  Repository klonen:
+    ```bash
+    git clone https://github.com/steelmaker02/Alvarez.git
+    ```
+2.  Abhängigkeiten installieren:
+    ```bash
+    npm install
+    ```
+3.  Entwicklungsserver starten:
+    ```bash
+    npm run dev
+    ```
+
+---
+© 2025 Studienprojekt.
