@@ -45,18 +45,18 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled || currentView !== 'home'
-        // СОСТОЯНИЕ 1: ПРИ СКРОЛЛЕ (Компактно, но аккуратно)
         ? 'bg-[#2B1B17]/95 backdrop-blur-md py-4 shadow-lg'
-
-        // СОСТОЯНИЕ 2: НА ВЕРХУ (Просторно, избегаем выреза экрана)
-        // pt-10 (40px) сверху - отодвигает лого от края
-        // pb-6 (24px) снизу - балансирует вид
         : 'bg-transparent pt-10 pb-6'
         }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <div className="flex-shrink-0">
-          <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }} className="block">
+          <a
+            href="#home"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+            className="block"
+            aria-label="Zur Startseite" // Добавил описание для доступности
+          >
             <img
               src="logo.png"
               alt="Alvarez Chocolat"
@@ -72,7 +72,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
               key={link.name}
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-              // ИЗМЕНЕНИЕ: md:text-base (16px на десктопах)
               className="font-sans text-sm md:text-base tracking-widest text-[#F5F0EB] hover:text-[#C68E66] transition-colors duration-300 uppercase cursor-pointer"
             >
               {link.name}
@@ -80,9 +79,12 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
           ))}
         </nav>
 
-        {/* КОРЗИНА */}
         <div className="hidden md:flex items-center space-x-6">
-          <button onClick={openCart} className="text-[#F5F0EB] hover:text-[#C68E66] transition-colors duration-300 relative">
+          <button
+            onClick={openCart}
+            className="text-[#F5F0EB] hover:text-[#C68E66] transition-colors duration-300 relative"
+            aria-label="Warenkorb öffnen" // Важно для Accessibility
+          >
             <ShoppingBag size={20} />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C68E66] text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
@@ -92,7 +94,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
           </button>
         </div>
 
-        <button className="md:hidden text-[#F5F0EB]" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          className="md:hidden text-[#F5F0EB]"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"} // Важно для Accessibility
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -104,7 +110,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
               {link.name}
             </a>
           ))}
-          {/* Корзина в мобильном меню */}
           <button onClick={() => { setIsMobileMenuOpen(false); openCart(); }} className="font-serif text-2xl text-[#C68E66] flex items-center gap-2">
             Warenkorb ({cartCount})
           </button>

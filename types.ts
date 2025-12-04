@@ -7,7 +7,6 @@ export interface Product {
   imageHover: string;
 }
 
-// 1. КЛАССИЧЕСКАЯ КОЛЛЕКЦИЯ
 export const CLASSIC_PRODUCTS: Product[] = [
   {
     id: 'ingwer-mandel',
@@ -51,7 +50,6 @@ export const CLASSIC_PRODUCTS: Product[] = [
   }
 ];
 
-// 2. ПАСХАЛЬНАЯ КОЛЛЕКЦИЯ (Яйца)
 export const EASTER_PRODUCTS: Product[] = [
   {
     id: 'ei-himbeer-royal',
@@ -64,7 +62,7 @@ export const EASTER_PRODUCTS: Product[] = [
   {
     id: 'ei-nougat-schicht',
     name: 'Nougat-Symphonie',
-    description: 'Vier erlesene Lagen feinen Nougats mit fruchtiger zarter Marmeladenfüllung.',
+    description: 'Vier erlesene Lagen feinen Nougats mit zarter fruchtiger Füllung.',
     price: '€ 2,50',
     imageDefault: 'Ei_Nougat.png',
     imageHover: 'Ei_Nougat_Cut.png',

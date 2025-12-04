@@ -41,7 +41,6 @@ export const ProductCarousel: React.FC = () => {
 
       <div className="container mx-auto px-6 md:px-12 mb-12 flex flex-col items-center text-center">
         <div className={`mb-8 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-          {/* ИСПРАВЛЕНО: text-[#784830] - Темная медь (Проходит тест контрастности) */}
           <span className="text-[#784830] font-sans text-sm tracking-[0.2em] uppercase mb-3 block">
             {currentCollection.subtitle}
           </span>
@@ -63,7 +62,6 @@ export const ProductCarousel: React.FC = () => {
             {collections.map((_, idx) => (
               <div
                 key={idx}
-                // ИСПРАВЛЕНО: bg-[#784830]
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === activeCollectionIndex ? 'bg-[#784830] w-4' : 'bg-[#2B1B17]/20'}`}
               ></div>
             ))}
@@ -101,7 +99,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
   return (
     <div className="relative group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-2rem)] min-w-[240px] max-w-[300px] flex flex-col">
-      {/* ИСПРАВЛЕНО: border-[#784830]/20 */}
       <div className="relative aspect-[4/5] bg-[#784830]/5 rounded-sm overflow-hidden mb-5 shadow-sm border border-[#784830]/20">
         <img
           src={product.imageDefault}
@@ -118,7 +115,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <button
             onClick={handleAdd}
             aria-label="In den Warenkorb"
-            // ИСПРАВЛЕНО: hover:bg-[#784830]
             className="w-12 h-12 bg-[#F5F0EB] text-[#2B1B17] rounded-full flex items-center justify-center shadow-lg hover:bg-[#784830] hover:text-white transition-colors duration-300"
           >
             <Plus size={22} />
@@ -133,7 +129,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         </p>
 
         <div className="mt-4 pt-3 border-t border-[#2B1B17]/10 flex justify-between items-baseline">
-          {/* ИСПРАВЛЕНО: text-[#784830] */}
           <span className="font-sans text-[#784830] font-medium text-lg md:text-xl">{product.price}</span>
           <span className="text-xs text-[#2B1B17]/75 font-normal uppercase tracking-wider">/ Stück</span>
         </div>

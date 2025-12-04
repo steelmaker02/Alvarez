@@ -12,7 +12,6 @@ export const Datenschutz: React.FC = () => {
           <h1 className="font-serif text-4xl md:text-5xl mb-12 text-cacao">Datenschutzerklärung</h1>
 
           <div className="space-y-12">
-            {/* Section 1 */}
             <section>
               <h2 className="font-serif text-2xl font-bold mb-6 text-cacao">1. Datenschutz auf einen Blick</h2>
 
@@ -36,7 +35,6 @@ export const Datenschutz: React.FC = () => {
               </address>
             </section>
 
-            {/* Section 2 */}
             <section>
               <h2 className="font-serif text-2xl font-bold mb-6 text-cacao">2. Hosting</h2>
               <h3 className="font-bold text-lg mb-3">Hosting über GitHub Pages</h3>
@@ -52,7 +50,6 @@ export const Datenschutz: React.FC = () => {
               </p>
             </section>
 
-            {/* Section 3 */}
             <section>
               <h2 className="font-serif text-2xl font-bold mb-6 text-cacao">3. Allgemeine Hinweise</h2>
               <h3 className="font-bold text-lg mb-3">SSL- bzw. TLS-Verschlüsselung</h3>
@@ -66,7 +63,6 @@ export const Datenschutz: React.FC = () => {
               </p>
             </section>
 
-            {/* Section 4 */}
             <section>
               <h2 className="font-serif text-2xl font-bold mb-6 text-cacao">4. Datenerfassung auf dieser Website</h2>
 
@@ -81,7 +77,6 @@ export const Datenschutz: React.FC = () => {
               </p>
             </section>
 
-            {/* Section 5 */}
             <section>
               <h2 className="font-serif text-2xl font-bold mb-6 text-cacao">5. Plugins und Tools</h2>
 

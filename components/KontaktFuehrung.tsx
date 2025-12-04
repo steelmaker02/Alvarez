@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-// Тип данных для формы
 interface FormData {
     date: string;
     personCount: string;
@@ -17,7 +16,6 @@ export const KontaktFuehrung: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // 1. Состояние для хранения данных, которые ввел пользователь
     const [formData, setFormData] = useState<FormData>({
         date: '',
         personCount: '',
@@ -29,52 +27,41 @@ export const KontaktFuehrung: React.FC = () => {
         email: ''
     });
 
-    // 2. Состояние для хранения ошибок (какое поле красное и почему)
     const [errors, setErrors] = useState<Partial<FormData>>({});
 
-    // Функция обновления данных при вводе
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
 
-        // Если пользователь начал исправлять поле, убираем ошибку
         if (errors[name as keyof FormData]) {
             setErrors(prev => ({ ...prev, [name]: '' }));
         }
     };
 
-    // 3. Функция ПРОВЕРКИ (Валидация)
     const validate = (): boolean => {
         const newErrors: Partial<FormData> = {};
 
-        // Проверка обязательных полей
-        if (!formData.lastName) newErrors.lastName = 'Pflichtfeld'; // Обязательно
+        if (!formData.lastName) newErrors.lastName = 'Pflichtfeld';
         if (!formData.firstName) newErrors.firstName = 'Pflichtfeld';
         if (!formData.email) newErrors.email = 'Pflichtfeld';
 
-        // --- ПРОВЕРКА ТЕЛЕФОНА ---
-        // Разрешаем цифры, пробелы, +, -, /, скобки.
-        // Должен начинаться с + или цифры. Минимум 7 символов.
         const phoneRegex = /^(\+|0)[0-9 \-\(\)\/]{6,}$/;
 
         if (formData.phone && !phoneRegex.test(formData.phone)) {
             newErrors.phone = 'Bitte gültiges Format eingeben (z.B. +49 170...)';
         }
 
-        // Проверка Email (простая)
         if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
             newErrors.email = 'Ungültige E-Mail-Adresse';
         }
 
         setErrors(newErrors);
-        // Если ошибок нет (длина ключей 0), возвращаем true
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault(); // Чтобы страница не перезагружалась
+        e.preventDefault();
         if (validate()) {
-            // Здесь будет логика отправки на сервер
             alert("Formular erfolgreich gesendet! (Форма успешно отправлена)");
             console.log("Данные для отправки:", formData);
         } else {
@@ -82,8 +69,6 @@ export const KontaktFuehrung: React.FC = () => {
         }
     };
 
-    // Вспомогательный класс для инпутов (чтобы не дублировать код)
-    // Если есть ошибка -> Красная рамка. Если нет -> Обычная.
     const getInputClass = (fieldName: keyof FormData) => `
         w-full p-3 border outline-none transition-colors
         ${errors[fieldName]
@@ -97,7 +82,6 @@ export const KontaktFuehrung: React.FC = () => {
             <div className="container mx-auto px-6 max-w-4xl">
                 <h1 className="font-serif text-4xl md:text-5xl mb-10 text-[#2B1B17]">Kontakt & Führung</h1>
 
-                {/* Текстовая часть */}
                 <div className="font-sans text-lg leading-relaxed space-y-6 mb-12 opacity-90">
                     <p>
                         Sie wollen unsere Produktion kennenlernen und in die Geheimnisse der hohen Chocolatier-Kunst eingeweiht werden?
@@ -119,11 +103,9 @@ export const KontaktFuehrung: React.FC = () => {
 
                 <hr className="border-[#C68E66]/20 my-12" />
 
-                {/* Форма */}
                 <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 md:p-12 rounded-sm shadow-sm border border-[#2B1B17]/5">
                     <h2 className="font-serif text-2xl mb-6">Anmeldung zur Führung</h2>
 
-                    {/* Дата и Кол-во */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="flex flex-col">
                             <label className="text-sm font-bold uppercase tracking-wide mb-2 text-[#C68E66]">Wunschtermin</label>
@@ -150,7 +132,6 @@ export const KontaktFuehrung: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Имя и Фамилия */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="flex flex-col">
                             <input
@@ -161,7 +142,6 @@ export const KontaktFuehrung: React.FC = () => {
                                 onChange={handleChange}
                                 className={getInputClass('lastName')}
                             />
-                            {/* Текст ошибки */}
                             {errors.lastName && <span className="text-red-500 text-xs mt-1">{errors.lastName}</span>}
                         </div>
 
@@ -178,7 +158,6 @@ export const KontaktFuehrung: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Улица */}
                     <input
                         type="text"
                         name="street"
@@ -187,7 +166,6 @@ export const KontaktFuehrung: React.FC = () => {
                         className="w-full p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none"
                     />
 
-                    {/* PLZ, Телефон, Email */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <input
                             type="text"
@@ -197,7 +175,6 @@ export const KontaktFuehrung: React.FC = () => {
                             className="md:col-span-1 p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none"
                         />
 
-                        {/* --- ТЕЛЕФОН С ВАЛИДАЦИЕЙ --- */}
                         <div className="md:col-span-1 flex flex-col">
                             <input
                                 type="tel"
@@ -205,9 +182,8 @@ export const KontaktFuehrung: React.FC = () => {
                                 placeholder="Telefon +49 170 123456"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className={getInputClass('phone')} // Здесь применяется красная рамка если ошибка
+                                className={getInputClass('phone')}
                             />
-                            {/* Если есть ошибка, показываем текст снизу */}
                             {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone}</span>}
                         </div>
 
@@ -224,7 +200,6 @@ export const KontaktFuehrung: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Чекбокс рассылки */}
                     <div className="flex items-start gap-3 mt-4">
                         <input type="checkbox" id="newsletter" className="mt-1 accent-[#C68E66]" />
                         <label htmlFor="newsletter" className="text-sm text-[#2B1B17]/80">
@@ -232,7 +207,6 @@ export const KontaktFuehrung: React.FC = () => {
                         </label>
                     </div>
 
-                    {/* Интересы */}
                     <div className="space-y-3 mt-6">
                         <p className="font-bold mb-2">Ich interessiere mich für: (Bitte ankreuzen)</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -251,9 +225,7 @@ export const KontaktFuehrung: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Кнопки */}
                     <div className="flex gap-4 pt-6">
-                        {/* Кнопка сброса */}
                         <button
                             type="button"
                             onClick={() => {
@@ -265,7 +237,6 @@ export const KontaktFuehrung: React.FC = () => {
                             Zurücksetzen
                         </button>
 
-                        {/* Кнопка отправки */}
                         <button
                             type="submit"
                             className="px-8 py-3 bg-[#2B1B17] text-[#F5F0EB] hover:bg-[#C68E66] transition-colors uppercase text-sm tracking-widest"

@@ -36,7 +36,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             }
             return [...prev, { ...product, quantity: 1 }];
         });
-        setIsOpen(true); // Автоматически открываем корзину при добавлении
+        setIsOpen(true);
     };
 
     const removeFromCart = (id: string) => {
@@ -53,7 +53,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         }));
     };
 
-    // Парсинг цены из строки "€ 1,60" в число для подсчета
     const parsePrice = (priceStr: string) => {
         return parseFloat(priceStr.replace('€', '').replace(',', '.').trim()) || 0;
     };

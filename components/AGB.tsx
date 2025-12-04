@@ -46,7 +46,6 @@ export const AGB: React.FC = () => {
                         </p>
                     </section>
 
-                    {/* ВАЖНО: Раздел о возврате товара (Обязателен в ЕС) */}
                     <section className="bg-white/50 p-6 rounded-sm border-l-2 border-[#C68E66]">
                         <h2 className="font-serif text-2xl font-bold mb-4">6. Widerrufsrecht</h2>
                         <p className="mb-4">
@@ -68,7 +67,7 @@ export const AGB: React.FC = () => {
                     <section>
                         <h2 className="font-serif text-2xl font-bold mb-2">8. Streitbeilegung</h2>
                         <p>
-                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#C68E66] underline">https://ec.europa.eu/consumers/odr/</a>.
+                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#C68E66] underline">https:
                         </p>
                     </section>
                 </div>

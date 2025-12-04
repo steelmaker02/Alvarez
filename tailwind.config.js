@@ -2,11 +2,10 @@
 export default {
     content: [
         "./index.html",
-        // 👇 ВОТ ЭТИ СТРОКИ САМЫЕ ВАЖНЫЕ:
-        "./*.{js,ts,jsx,tsx}",              // Искать в корне (App.tsx, index.tsx)
-        "./components/**/*.{js,ts,jsx,tsx}", // Искать в папке components
-        "./context/**/*.{js,ts,jsx,tsx}",    // Искать в папке context
-        "./src/**/*.{js,ts,jsx,tsx}",        // Искать в src (на всякий случай)
+        "./*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+        "./context/**/*.{js,ts,jsx,tsx}",
+        "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {

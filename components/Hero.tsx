@@ -3,12 +3,8 @@ import { ArrowDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    // h-screen -> Занимает весь экран пользователя
-    // max-h-[1080px] -> Не дает растянуться слишком сильно на огромных экранах
-    // min-h-[600px] -> Чтобы текст не наезжал друг на друга на маленьких экранах
     <section id="home" className="relative w-full overflow-hidden bg-[#2B1B17] h-screen max-h-[1080px] min-h-[600px]">
 
-      {/* --- ВИДЕО ФОН --- */}
       <div className="absolute inset-0 w-full h-full">
 
         <video
@@ -18,22 +14,13 @@ export const Hero: React.FC = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover object-center z-10 opacity-100"
         >
-          {/* Путь к видео */}
           <source src="schokolade-fluessig.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
-        {/* 
-           ИСПРАВЛЕНО: Я убрал 'bg-[#2B1B17]/40'.
-           Теперь здесь только градиент: 
-           - Сверху немного темноты (для меню)
-           - В середине ПРОЗРАЧНО (видео яркое)
-           - Снизу темнота (чтобы белый текст читался)
-        */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-20"></div>
       </div>
 
-      {/* --- КОНТЕНТ (ТЕКСТ) --- */}
       <div className="relative h-full container mx-auto px-6 flex flex-col items-center justify-center text-center z-30 pt-20">
 
         <h2 className="font-sans text-white text-xs md:text-sm tracking-[0.3em] uppercase mb-4 md:mb-6 animate-fade-in-up">
@@ -54,7 +41,6 @@ export const Hero: React.FC = () => {
         </a>
       </div>
 
-      {/* Индикатор скролла */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
         <ArrowDown className="text-[#F5F0EB]/50" size={32} />
       </div>

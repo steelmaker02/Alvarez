@@ -3,23 +3,18 @@ import React from 'react';
 export const History: React.FC = () => {
   return (
     <section id="history" className="relative py-32 overflow-hidden">
-      {/* Parallax Background - Vintage Engraving */}
       <div
         className="absolute inset-0 bg-fixed bg-cover bg-center grayscale sepia-[.3] contrast-125 brightness-50"
         style={{
-          // Файл должен лежать в папке public
           backgroundImage: "url('kakao-stich-alt.jpg')"
         }}
       ></div>
 
-      {/* Overlay color fixed to Deep Cacao */}
       <div className="absolute inset-0 bg-[#2B1B17]/85 mix-blend-multiply"></div>
 
       <div className="container relative mx-auto px-6 md:px-12 text-center z-10">
-        {/* ИСПРАВЛЕНО: border-[#E6C8A6]/30 - светлая рамка */}
         <div className="max-w-3xl mx-auto border border-[#E6C8A6]/30 p-12 md:p-20 bg-[#2B1B17]/60 backdrop-blur-md shadow-2xl">
 
-          {/* ИСПРАВЛЕНО: text-[#E6C8A6] - светлое золото */}
           <span className="text-[#E6C8A6] font-sans text-sm tracking-[0.4em] uppercase mb-6 block">Unsere Geschichte</span>
 
           <h2 className="font-serif text-4xl md:text-6xl text-[#F5F0EB] mb-8">
@@ -30,7 +25,6 @@ export const History: React.FC = () => {
             "Exklusive Schokoladenspezialitäten nach den Grundrezepturen von Antonio Alvarez."
           </p>
 
-          {/* ИСПРАВЛЕНО: opacity-90 (текст стал ярче) */}
           <div className="font-sans text-[#F5F0EB]/90 text-base md:text-lg font-light leading-loose space-y-4">
             <p>
               Die Geschichte beginnt mit dem Entschluss des Lübecker Konditors Johann Köster in seiner kleinen Konditorei in der Altstadt Lübecks, nach einer neuen Methode Schokolade herzustellen.
@@ -41,7 +35,6 @@ export const History: React.FC = () => {
           </div>
 
           <div className="mt-12">
-            {/* ИСПРАВЛЕНО: text-[#E6C8A6] - подпись тоже светлая */}
             <div className="font-serif text-3xl text-[#E6C8A6] opacity-90 -rotate-6">
               Antonio Alvarez
             </div>

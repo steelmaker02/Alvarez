@@ -1,7 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 
-// Типы страниц (должны совпадать с App.tsx и Header.tsx)
 type ViewState = 'home' | 'datenschutz' | 'impressum' | 'agb' | 'kontakt-fuehrung';
 
 interface FooterProps {
@@ -14,7 +13,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 
-          {/* 1. Логотип и Бренд */}
           <div className="space-y-6">
             <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="block">
               <img
@@ -24,13 +22,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
             </a>
-            {/* ИСПРАВЛЕНО: opacity 80% (было 60%) */}
             <p className="font-sans text-base text-[#F5F0EB]/80 leading-relaxed max-w-xs">
               Handgemachte Premium-Schokolade aus Lübeck.
               Leidenschaft für Perfektion seit 1850.
             </p>
 
-            {/* ИСПРАВЛЕНО: Добавлены aria-label для доступности */}
             <div className="flex space-x-4 pt-4">
               <a
                 href="#"
@@ -56,10 +52,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* 2. Навигация (Entdecken) */}
           <div>
             <h4 className="font-serif text-xl text-[#F5F0EB] mb-6">Entdecken</h4>
-            {/* ИСПРАВЛЕНО: text-[#F5F0EB]/80 */}
             <ul className="space-y-4 font-sans text-base text-[#F5F0EB]/80">
               <li>
                 <a href="#history" onClick={(e) => { e.preventDefault(); onNavigate('home'); setTimeout(() => document.getElementById('history')?.scrollIntoView(), 100); }} className="hover:text-[#C68E66] transition-colors">
@@ -77,10 +71,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* 3. Контакты */}
           <div>
             <h4 className="font-serif text-xl text-[#F5F0EB] mb-6">Kontakt</h4>
-            {/* ИСПРАВЛЕНО: text-[#F5F0EB]/80 */}
             <address className="not-italic font-sans text-base text-[#F5F0EB]/80 space-y-4">
               <p>Mahlerweg 12<br />23552 Lübeck<br />Deutschland</p>
               <p>
@@ -91,8 +83,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Нижняя полоса (Legal) */}
-        {/* ИСПРАВЛЕНО: text-[#F5F0EB]/60 (было 40%, слишком тускло) */}
         <div className="border-t border-[#F5F0EB]/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-[#F5F0EB]/60 font-sans">
           <div className="text-center md:text-left">
             <p>&copy; 2025 Alvarez Chocolat AG. Alle Rechte vorbehalten.</p>
@@ -100,7 +90,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           <div className="flex space-x-6 mt-4 md:mt-0">
-            {/* Для кнопок внизу используем яркий ховер (белый) */}
             <button onClick={() => onNavigate('impressum')} className="hover:text-white transition-colors">Impressum</button>
             <button onClick={() => onNavigate('datenschutz')} className="hover:text-white transition-colors">Datenschutz</button>
             <button onClick={() => onNavigate('agb')} className="hover:text-white transition-colors">AGB</button>
