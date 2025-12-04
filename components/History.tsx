@@ -8,7 +8,7 @@ export const History: React.FC = () => {
         className="absolute inset-0 bg-fixed bg-cover bg-center grayscale sepia-[.3] contrast-125 brightness-50"
         style={{
           // Файл должен лежать в папке public
-          backgroundImage: "url('/kakao-stich-alt.jpg')"
+          backgroundImage: "url('kakao-stich-alt.jpg')"
         }}
       ></div>
 
