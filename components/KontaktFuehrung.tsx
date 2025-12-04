@@ -1,9 +1,96 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Тип данных для формы
+interface FormData {
+    date: string;
+    personCount: string;
+    lastName: string;
+    firstName: string;
+    street: string;
+    city: string;
+    phone: string;
+    email: string;
+}
 
 export const KontaktFuehrung: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    // 1. Состояние для хранения данных, которые ввел пользователь
+    const [formData, setFormData] = useState<FormData>({
+        date: '',
+        personCount: '',
+        lastName: '',
+        firstName: '',
+        street: '',
+        city: '',
+        phone: '',
+        email: ''
+    });
+
+    // 2. Состояние для хранения ошибок (какое поле красное и почему)
+    const [errors, setErrors] = useState<Partial<FormData>>({});
+
+    // Функция обновления данных при вводе
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+
+        // Если пользователь начал исправлять поле, убираем ошибку
+        if (errors[name as keyof FormData]) {
+            setErrors(prev => ({ ...prev, [name]: '' }));
+        }
+    };
+
+    // 3. Функция ПРОВЕРКИ (Валидация)
+    const validate = (): boolean => {
+        const newErrors: Partial<FormData> = {};
+
+        // Проверка обязательных полей
+        if (!formData.lastName) newErrors.lastName = 'Pflichtfeld'; // Обязательно
+        if (!formData.firstName) newErrors.firstName = 'Pflichtfeld';
+        if (!formData.email) newErrors.email = 'Pflichtfeld';
+
+        // --- ПРОВЕРКА ТЕЛЕФОНА ---
+        // Разрешаем цифры, пробелы, +, -, /, скобки.
+        // Должен начинаться с + или цифры. Минимум 7 символов.
+        const phoneRegex = /^(\+|0)[0-9 \-\(\)\/]{6,}$/;
+
+        if (formData.phone && !phoneRegex.test(formData.phone)) {
+            newErrors.phone = 'Bitte gültiges Format eingeben (z.B. +49 170...)';
+        }
+
+        // Проверка Email (простая)
+        if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = 'Ungültige E-Mail-Adresse';
+        }
+
+        setErrors(newErrors);
+        // Если ошибок нет (длина ключей 0), возвращаем true
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault(); // Чтобы страница не перезагружалась
+        if (validate()) {
+            // Здесь будет логика отправки на сервер
+            alert("Formular erfolgreich gesendet! (Форма успешно отправлена)");
+            console.log("Данные для отправки:", formData);
+        } else {
+            alert("Bitte überprüfen Sie Ihre Eingaben. (Пожалуйста, проверьте введенные данные)");
+        }
+    };
+
+    // Вспомогательный класс для инпутов (чтобы не дублировать код)
+    // Если есть ошибка -> Красная рамка. Если нет -> Обычная.
+    const getInputClass = (fieldName: keyof FormData) => `
+        w-full p-3 border outline-none transition-colors
+        ${errors[fieldName]
+            ? 'border-red-500 bg-red-50 focus:border-red-500'
+            : 'border-[#2B1B17]/20 focus:border-[#C68E66] bg-white'
+        }
+    `;
 
     return (
         <div className="bg-[#F5F0EB] min-h-screen pt-32 pb-20 text-[#2B1B17]">
@@ -33,39 +120,108 @@ export const KontaktFuehrung: React.FC = () => {
                 <hr className="border-[#C68E66]/20 my-12" />
 
                 {/* Форма */}
-                <form className="space-y-8 bg-white p-8 md:p-12 rounded-sm shadow-sm border border-[#2B1B17]/5">
+                <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 md:p-12 rounded-sm shadow-sm border border-[#2B1B17]/5">
                     <h2 className="font-serif text-2xl mb-6">Anmeldung zur Führung</h2>
 
                     {/* Дата и Кол-во */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="flex flex-col">
                             <label className="text-sm font-bold uppercase tracking-wide mb-2 text-[#C68E66]">Wunschtermin</label>
-                            <input type="date" className="p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none bg-[#F5F0EB]/30" />
+                            <input
+                                type="date"
+                                name="date"
+                                onChange={handleChange}
+                                className="w-full p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none bg-[#F5F0EB]/30"
+                            />
                         </div>
                         <div className="flex flex-col">
                             <label className="text-sm font-bold uppercase tracking-wide mb-2 text-[#C68E66]">Personenanzahl</label>
-                            <select className="p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none bg-[#F5F0EB]/30">
-                                <option>Bitte wählen...</option>
-                                <option>1-5</option>
-                                <option>6-15</option>
-                                <option>16-30</option>
-                                <option>Größere Gruppe</option>
+                            <select
+                                name="personCount"
+                                onChange={handleChange}
+                                className="w-full p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none bg-[#F5F0EB]/30"
+                            >
+                                <option value="">Bitte wählen...</option>
+                                <option value="1-5">1-5</option>
+                                <option value="6-15">6-15</option>
+                                <option value="16-30">16-30</option>
+                                <option value="large">Größere Gruppe</option>
                             </select>
                         </div>
                     </div>
 
-                    {/* Адрес */}
+                    {/* Имя и Фамилия */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Name" className="p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
-                        <input type="text" placeholder="Vorname" className="p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
+                        <div className="flex flex-col">
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Name *"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                className={getInputClass('lastName')}
+                            />
+                            {/* Текст ошибки */}
+                            {errors.lastName && <span className="text-red-500 text-xs mt-1">{errors.lastName}</span>}
+                        </div>
+
+                        <div className="flex flex-col">
+                            <input
+                                type="text"
+                                name="firstName"
+                                placeholder="Vorname *"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                className={getInputClass('firstName')}
+                            />
+                            {errors.firstName && <span className="text-red-500 text-xs mt-1">{errors.firstName}</span>}
+                        </div>
                     </div>
 
-                    <input type="text" placeholder="Straße / Hausnummer" className="w-full p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
+                    {/* Улица */}
+                    <input
+                        type="text"
+                        name="street"
+                        placeholder="Straße / Hausnummer"
+                        onChange={handleChange}
+                        className="w-full p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none"
+                    />
 
+                    {/* PLZ, Телефон, Email */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <input type="text" placeholder="PLZ / Ort" className="md:col-span-1 p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
-                        <input type="tel" placeholder="Telefon" className="md:col-span-1 p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
-                        <input type="email" placeholder="E-Mail" className="md:col-span-1 p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none" />
+                        <input
+                            type="text"
+                            name="city"
+                            placeholder="PLZ / Ort"
+                            onChange={handleChange}
+                            className="md:col-span-1 p-3 border border-[#2B1B17]/20 focus:border-[#C68E66] outline-none"
+                        />
+
+                        {/* --- ТЕЛЕФОН С ВАЛИДАЦИЕЙ --- */}
+                        <div className="md:col-span-1 flex flex-col">
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="Telefon (z.B. +49 170 123456)"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className={getInputClass('phone')} // Здесь применяется красная рамка если ошибка
+                            />
+                            {/* Если есть ошибка, показываем текст снизу */}
+                            {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone}</span>}
+                        </div>
+
+                        <div className="md:col-span-1 flex flex-col">
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="E-Mail *"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className={getInputClass('email')}
+                            />
+                            {errors.email && <span className="text-red-500 text-xs mt-1">{errors.email}</span>}
+                        </div>
                     </div>
 
                     {/* Чекбокс рассылки */}
@@ -97,10 +253,23 @@ export const KontaktFuehrung: React.FC = () => {
 
                     {/* Кнопки */}
                     <div className="flex gap-4 pt-6">
-                        <button type="reset" className="px-6 py-3 border border-[#2B1B17] text-[#2B1B17] hover:bg-[#2B1B17]/5 transition-colors uppercase text-sm tracking-widest">
+                        {/* Кнопка сброса */}
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setFormData({ date: '', personCount: '', lastName: '', firstName: '', street: '', city: '', phone: '', email: '' });
+                                setErrors({});
+                            }}
+                            className="px-6 py-3 border border-[#2B1B17] text-[#2B1B17] hover:bg-[#2B1B17]/5 transition-colors uppercase text-sm tracking-widest"
+                        >
                             Zurücksetzen
                         </button>
-                        <button type="button" className="px-8 py-3 bg-[#2B1B17] text-[#F5F0EB] hover:bg-[#C68E66] transition-colors uppercase text-sm tracking-widest">
+
+                        {/* Кнопка отправки */}
+                        <button
+                            type="submit"
+                            className="px-8 py-3 bg-[#2B1B17] text-[#F5F0EB] hover:bg-[#C68E66] transition-colors uppercase text-sm tracking-widest"
+                        >
                             Absenden
                         </button>
                     </div>
