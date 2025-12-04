@@ -3,48 +3,47 @@ import { ArrowDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    // ИСПРАВЛЕНИЕ В ЭТОЙ СТРОКЕ:
-    // h-screen -> Занимает весь экран пользователя (идеально для ноутбуков)
+    // h-screen -> Занимает весь экран пользователя
     // max-h-[1080px] -> Не дает растянуться слишком сильно на огромных экранах
     // min-h-[600px] -> Чтобы текст не наезжал друг на друга на маленьких экранах
     <section id="home" className="relative w-full overflow-hidden bg-[#2B1B17] h-screen max-h-[1080px] min-h-[600px]">
 
       {/* --- ВИДЕО ФОН --- */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Картинка-заглушка */}
-        <img
-          src="schokolade-fluessig.gif"
-          alt="Chocolate Background"
-          className="absolute inset-0 w-full h-full object-cover object-center z-0"
-        />
 
-        {/* Видео */}
+        {/* 
+           Я удалил тег <img> с гифкой, чтобы сайт летал! 
+           Теперь грузится только легкое видео.
+        */}
+
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center z-10 opacity-100 transition-opacity duration-1000"
+          className="absolute inset-0 w-full h-full object-cover object-center z-10 opacity-100"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* 
+             ВАЖНО: Путь указан без слеша в начале ("schokolade-fluessig.mp4").
+             Файл должен лежать в папке public.
+          */}
+          <source src="schokolade-fluessig.mp4" type="video/mp4" />
+
+          {/* Если вдруг браузер старый и не поддерживает видео, покажем сообщение */}
+          Your browser does not support the video tag.
         </video>
 
-        {/* Темный слой (градиент) */}
+        {/* Темный слой (градиент) для читаемости текста */}
         <div className="absolute inset-0 bg-[#2B1B17]/40 bg-gradient-to-b from-[#2B1B17]/30 via-transparent to-[#2B1B17]/90 z-20"></div>
       </div>
 
       {/* --- КОНТЕНТ (ТЕКСТ) --- */}
-      {/* 
-         flex-col justify-center -> Центрирует контент по вертикали
-         pt-20 -> Компенсирует высоту хедера, чтобы текст был визуально посередине
-      */}
       <div className="relative h-full container mx-auto px-6 flex flex-col items-center justify-center text-center z-30 pt-20">
 
         <h2 className="font-sans text-[#C68E66] text-xs md:text-sm tracking-[0.3em] uppercase mb-4 md:mb-6 animate-fade-in-up">
           Handmade in Lübeck since 1850
         </h2>
 
-        {/* Адаптивный размер шрифта: на мобильных меньше, на ноутах средний, на 4K огромный */}
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F5F0EB] leading-tight mb-8 drop-shadow-lg max-w-5xl animate-fade-in-up delay-100">
           Edle Spezialitäten <br />
           <span className="italic text-[#C68E66]/80">aus aller Welt</span>
