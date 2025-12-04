@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="space-y-6">
             <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }} className="block">
               <img
-                src="/logo.png"
+                src="logo.png"
                 alt="Alvarez Chocolat"
                 className="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
                 style={{ filter: 'brightness(0) invert(1)' }}

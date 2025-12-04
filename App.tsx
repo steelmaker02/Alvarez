@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
             {/* 1. ЗАКРЫТАЯ КОРОБКА */}
             <img
-              src="/pralinenschachtel.png"
+              src="pralinenschachtel.png"
               alt="Alvarez Gift Box Closed"
               // УБРАЛ: mix-blend-multiply
               // Теперь белый цвет останется белым
@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
             {/* 2. ОТКРЫТАЯ КОРОБКА */}
             <img
-              src="/pralinenschachtel_open.png"
+              src="pralinenschachtel_open.png"
               alt="Alvarez Gift Box Open"
               // УБРАЛ: mix-blend-multiply
               className="absolute inset-0 w-full h-full object-contain p-8 md:p-12

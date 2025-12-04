@@ -14,7 +14,7 @@ export const Intro: React.FC = () => {
               <div className="relative z-10 overflow-hidden rounded-sm shadow-xl">
                 {/* Убедись, что файл kakaopulver.jpg лежит в папке public */}
                 <img
-                  src="/kakaopulver.jpg"
+                  src="kakaopulver.jpg"
                   alt="Feines Kakaopulver"
                   className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
                 />
@@ -84,7 +84,7 @@ export const Intro: React.FC = () => {
               <div className="relative z-10 overflow-hidden rounded-sm shadow-xl aspect-[4/3]">
                 {/* Используем фото кондитера. Обязательно в папке public */}
                 <img
-                  src="/konditorin.jpg"
+                  src="konditorin.jpg"
                   alt="Chocolatier bei der Arbeit"
                   className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                 />

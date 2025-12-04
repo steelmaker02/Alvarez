@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 w-full h-full">
         {/* Картинка-заглушка */}
         <img
-          src="/schokolade-fluessig.gif"
+          src="schokolade-fluessig.gif"
           alt="Chocolate Background"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
         />
