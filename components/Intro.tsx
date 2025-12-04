@@ -10,9 +10,9 @@ export const Intro: React.FC = () => {
 
             {/* Image Side - Texture (Kakaopulver) */}
             <div className="w-full lg:w-1/2 relative group order-2 lg:order-1">
+              {/* Рамка остается чуть темнее для стиля (#C68E66) */}
               <div className="absolute top-4 -left-4 w-full h-full border border-[#C68E66]/30 z-0 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
               <div className="relative z-10 overflow-hidden rounded-sm shadow-xl">
-                {/* Убедись, что файл kakaopulver.jpg лежит в папке public */}
                 <img
                   src="kakaopulver.jpg"
                   alt="Feines Kakaopulver"
@@ -24,16 +24,19 @@ export const Intro: React.FC = () => {
             {/* Text Side */}
             <div className="w-full lg:w-1/2 text-left order-1 lg:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-12 bg-[#C68E66]"></div>
-                <span className="text-[#C68E66] font-sans text-sm tracking-widest uppercase">Der Genuss</span>
+                {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                <div className="h-px w-12 bg-[#E6C8A6]"></div>
+                <span className="text-[#E6C8A6] font-sans text-sm tracking-widest uppercase">Der Genuss</span>
               </div>
 
               <h2 className="font-serif text-4xl md:text-5xl text-[#F5F0EB] mb-8 leading-tight">
                 Purer Genuss <br />
-                <span className="italic text-[#C68E66]">magische Momente.</span>
+                {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                <span className="italic text-[#E6C8A6]">magische Momente.</span>
               </h2>
 
-              <p className="font-sans text-[#F5F0EB]/80 text-lg leading-relaxed mb-8 font-light">
+              {/* ИСПРАВЛЕНО: opacity-90 для лучшей читаемости */}
+              <p className="font-sans text-[#F5F0EB]/90 text-lg leading-relaxed mb-8 font-light">
                 Woran mag es liegen, dass wir bei einer guten Schokolade die Augen schließen?
                 Die Antwort ist einfach: am puren Genuss! Mit geschlossenen Augen genießen wir den Moment,
                 in dem sich der zarte Schmelz und die edlen Aromen entfalten.
@@ -51,16 +54,19 @@ export const Intro: React.FC = () => {
             {/* Text Side */}
             <div className="w-full lg:w-1/2 text-left">
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-12 bg-[#C68E66]"></div>
-                <span className="text-[#C68E66] font-sans text-sm tracking-widest uppercase">Das Handwerk</span>
+                {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                <div className="h-px w-12 bg-[#E6C8A6]"></div>
+                <span className="text-[#E6C8A6] font-sans text-sm tracking-widest uppercase">Das Handwerk</span>
               </div>
 
               <h2 className="font-serif text-4xl md:text-5xl text-[#F5F0EB] mb-8 leading-tight">
                 Handmade <br />
-                <span className="italic text-[#C68E66]">in Lübeck.</span>
+                {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                <span className="italic text-[#E6C8A6]">in Lübeck.</span>
               </h2>
 
-              <p className="font-sans text-[#F5F0EB]/80 text-lg leading-relaxed mb-8 font-light">
+              {/* ИСПРАВЛЕНО: opacity-90 */}
+              <p className="font-sans text-[#F5F0EB]/90 text-lg leading-relaxed mb-8 font-light">
                 Diese einmaligen Momente kreiert Alvarez mit höchster Chocolatier-Kunst.
                 Seit über 100 Jahren produziert unsere Manufaktur nach alten Familienrezepten
                 edelste Schokoladen und Pralinenspezialitäten.
@@ -68,12 +74,14 @@ export const Intro: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
                 <div>
-                  <h4 className="font-serif text-3xl text-[#C68E66] mb-2">175</h4>
-                  <p className="font-sans text-sm text-[#F5F0EB]/60 uppercase tracking-wider">Jahre Tradition</p>
+                  {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                  <h4 className="font-serif text-3xl text-[#E6C8A6] mb-2">175</h4>
+                  <p className="font-sans text-sm text-[#F5F0EB]/70 uppercase tracking-wider">Jahre Tradition</p>
                 </div>
                 <div>
-                  <h4 className="font-serif text-3xl text-[#C68E66] mb-2">100%</h4>
-                  <p className="font-sans text-sm text-[#F5F0EB]/60 uppercase tracking-wider">Handmade</p>
+                  {/* ИСПРАВЛЕНО: Светлое золото #E6C8A6 */}
+                  <h4 className="font-serif text-3xl text-[#E6C8A6] mb-2">100%</h4>
+                  <p className="font-sans text-sm text-[#F5F0EB]/70 uppercase tracking-wider">Handmade</p>
                 </div>
               </div>
             </div>
@@ -82,7 +90,6 @@ export const Intro: React.FC = () => {
             <div className="w-full lg:w-1/2 relative group">
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#C68E66]/30 z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
               <div className="relative z-10 overflow-hidden rounded-sm shadow-xl aspect-[4/3]">
-                {/* Используем фото кондитера. Обязательно в папке public */}
                 <img
                   src="konditorin.jpg"
                   alt="Chocolatier bei der Arbeit"
