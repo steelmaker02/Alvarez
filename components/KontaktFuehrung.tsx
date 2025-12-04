@@ -202,7 +202,7 @@ export const KontaktFuehrung: React.FC = () => {
                             <input
                                 type="tel"
                                 name="phone"
-                                placeholder="Telefon (z.B. +49 170 123456)"
+                                placeholder="Telefon +49 170 123456"
                                 value={formData.phone}
                                 onChange={handleChange}
                                 className={getInputClass('phone')} // Здесь применяется красная рамка если ошибка
