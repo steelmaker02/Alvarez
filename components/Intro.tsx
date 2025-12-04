@@ -6,16 +6,14 @@ export const Intro: React.FC = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-
-            <div className="w-full lg:w-1/2 relative group order-2 lg:order-1">
-              <div className="absolute top-4 -left-4 w-full h-full border border-[#C68E66]/30 z-0 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
-              <div className="relative z-10 overflow-hidden rounded-sm shadow-xl">
-                <img
-                  src="kakaopulver.jpg"
-                  alt="Feines Kakaopulver"
-                  className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </div>
+            <div className="w-full lg:w-1/2 relative group order-2 lg:order-1 overflow-hidden rounded-sm shadow-2xl cursor-pointer">
+              <img
+                src="kakaopulver.jpg"
+                alt="Feines Kakaopulver"
+                loading="lazy"
+                className="w-full h-auto object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
             <div className="w-full lg:w-1/2 text-left order-1 lg:order-2">
@@ -42,7 +40,6 @@ export const Intro: React.FC = () => {
       <section className="py-24 bg-[#231612]">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-
             <div className="w-full lg:w-1/2 text-left">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-12 bg-[#E6C8A6]"></div>
@@ -72,17 +69,15 @@ export const Intro: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2 relative group">
-              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#C68E66]/30 z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-              <div className="relative z-10 overflow-hidden rounded-sm shadow-xl aspect-[4/3]">
-                <img
-                  src="konditorin.jpg"
-                  alt="Chocolatier bei der Arbeit"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                />
-              </div>
+            <div className="w-full lg:w-1/2 relative group overflow-hidden rounded-sm shadow-2xl cursor-pointer">
+              <img
+                src="konditorin.jpg"
+                alt="Chocolatier bei der Arbeit"
+                loading="lazy"
+                className="w-full h-full object-cover object-top transition-transform duration-[1500ms] ease-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Plus } from 'lucide-react';
 import { CLASSIC_PRODUCTS, EASTER_PRODUCTS, Product } from '../types';
 import { useCart } from '../context/CartContext';
@@ -22,6 +22,19 @@ export const ProductCarousel: React.FC = () => {
 
   const currentCollection = collections[activeCollectionIndex];
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      EASTER_PRODUCTS.forEach((product) => {
+        const img1 = new Image();
+        img1.src = product.imageDefault;
+        const img2 = new Image();
+        img2.src = product.imageHover;
+      });
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const switchCollection = (direction: 'next' | 'prev') => {
     setIsAnimating(true);
     setTimeout(() => {
@@ -38,7 +51,6 @@ export const ProductCarousel: React.FC = () => {
 
   return (
     <section id="neuheiten" className="py-24 bg-[#F5F0EB] text-[#2B1B17] relative overflow-hidden min-h-[700px]">
-
       <div className="container mx-auto px-6 md:px-12 mb-12 flex flex-col items-center text-center">
         <div className={`mb-8 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
           <span className="text-[#784830] font-sans text-sm tracking-[0.2em] uppercase mb-3 block">
@@ -84,7 +96,6 @@ export const ProductCarousel: React.FC = () => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };
@@ -124,7 +135,8 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
       <div className="text-left pr-0">
         <h3 className="font-serif text-xl md:text-2xl text-[#2B1B17] mb-2 leading-tight">{product.name}</h3>
-        <p className="font-sans text-[#2B1B17]/80 text-sm md:text-base leading-relaxed min-h-[48px] line-clamp-3">
+
+        <p className="font-sans text-[#2B1B17]/80 text-sm md:text-base leading-relaxed min-h-[60px] line-clamp-5">
           {product.description}
         </p>
 
