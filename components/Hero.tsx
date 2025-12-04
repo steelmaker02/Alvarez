@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
       {/* --- КОНТЕНТ (ТЕКСТ) --- */}
       <div className="relative h-full container mx-auto px-6 flex flex-col items-center justify-center text-center z-30 pt-20">
 
-        <h2 className="font-sans text-[#C68E66] text-xs md:text-sm tracking-[0.3em] uppercase mb-4 md:mb-6 animate-fade-in-up">
+        <h2 className="font-sans text-[#F5F0EB] text-xs md:text-sm tracking-[0.3em] uppercase mb-4 md:mb-6 animate-fade-in-up">
           Handmade in Lübeck since 1850
         </h2>
 
